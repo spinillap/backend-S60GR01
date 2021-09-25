@@ -22,7 +22,7 @@ public class PlazaService {
             while (rs.next()) {
                 PlazaModel plaza = new PlazaModel();
                 plaza.setId_plaza(rs.getString("id_plaza"));
-                plaza.setNumero_pla(rs.getString("numero_pla"));
+                plaza.setNumero_pla(rs.getInt("numero_pla"));
                 plaza.setEstado_pla(rs.getString("estado_pla"));
                 lista.add(plaza);                              
             }
@@ -43,7 +43,7 @@ public class PlazaService {
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 plaza.setId_plaza(rs.getString("id_plaza"));
-                plaza.setNumero_pla(rs.getString("numero_pla"));
+                plaza.setNumero_pla(rs.getInt("numero_pla"));
                 plaza.setEstado_pla(rs.getString("estado_pla"));
                 
             }
@@ -62,7 +62,7 @@ public class PlazaService {
         try {
             PreparedStatement pstm = conex.getCon().prepareStatement(Sql);
             pstm.setString(1, plaza.getId_plaza());
-            pstm.setString(2, plaza.getNumero_pla());
+            pstm.setInt(2, plaza.getNumero_pla());
             pstm.setString(3, plaza.getEstado_pla());
             pstm.executeUpdate();
 
@@ -78,7 +78,7 @@ public class PlazaService {
         String sql = "UPDATE plaza SET numero_pla=?,estado_pla=? WHERE id_plaza=?";
         try {
             PreparedStatement pstm = conn.getCon().prepareStatement(sql);
-            pstm.setString(1, plaza.getNumero_pla());
+            pstm.setInt(1, plaza.getNumero_pla());
             pstm.setString(2, plaza.getEstado_pla());
             pstm.setString(3, plaza.getId_plaza());
             pstm.executeUpdate();
