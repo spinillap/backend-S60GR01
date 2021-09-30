@@ -22,7 +22,7 @@ public class FacturaService {
             while (rs.next()) {
                 FacturaModel factura = new FacturaModel();
                 factura.setId_factura(rs.getString("id_factura"));
-                factura.setHora_sal(rs.getString("hhora_sal"));
+                factura.setHora_sal(rs.getString("hora_sal"));
                 factura.setId_usuario(rs.getString("id_usuario"));
                 factura.setId_tarifa(rs.getString("id_tarifa"));
                 factura.setId_ticket(rs.getString("id_ticket"));

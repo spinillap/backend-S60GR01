@@ -43,7 +43,7 @@ public class CorsFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        if (!StringUtils.isEmpty(allowOrigin)) {
+/*        if (!StringUtils.isEmpty(allowOrigin)) {
             if(allowOrigin.equals("*")){
                 response.setHeader("Access-Control-Allow-Origin", allowOrigin);
             }else{
@@ -68,9 +68,20 @@ public class CorsFilter implements Filter {
         if (!StringUtils.isEmpty(exposeHeaders)) {
             response.setHeader("Access-Control-Expose-Headers", exposeHeaders);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);*/
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, HEAD,PUT,DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+        if ("OPTIONS".equalsIgnoreCase( request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+            filterChain.doFilter(servletRequest, response);
+        }
+
     }
- 
+
     @Override
     public void destroy() {
  
