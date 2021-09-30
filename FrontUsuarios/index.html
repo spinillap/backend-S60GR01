@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="css/alertify.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <title>Usuarios</title>
+    </head>
+    <body>
+
+    <div class="container mt-4 shadow-lg p-3 mb-5  rounded ">
+
+        <table id="usuarios" class="table mt-2 table-bordered table-striped">
+            <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>TELÉFONO</th>
+                <th>EMAIL</th>
+                <th>DIRECCIÓN</th>
+                <th>ROL</th>
+                <th>USER</th>
+                <th>PASSWORD</th>
+                <th>ACCIÓN</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div style="text-align: center">
+            <button id="btnCrear" type="button" class="btn btn-primary"  style="background:#59ad59; border-color:#4cae4c"><i class="fas fa-user-plus"></i>
+                Añadir Usuario</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white"><h5 class="modal-title" id="exampleModalLabel">Usuarios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3" >
+                            <label for="id" class="col-form-label" >Id Usuario :</label>
+                            <input id="id" type="number" placeholder="Digite el id" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un id')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="col-form-label">Nombre Usuario :</label>
+                            <input id="nombre" placeholder="Digite el nombre" type="text" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un Nombre')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="col-form-label">Telefono Cliente :</label>
+                            <input id="telefono" placeholder="Digite el Teléfono" type="number" min="1000000000" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un Teléfono')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email Usuario :</label>
+                            <input id="email" placeholder="Digite el Email" type="email" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un Email')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="col-form-label">Direccion Usuario :</label>
+                            <input id="direccion" placeholder="Digite la Dirección" type="text" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite una Direccion')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="rol" class="col-form-label">Rol Usuario :</label>
+                            <input id="rol" placeholder="Digite la Ciudad" type="text" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un Rol')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="col-form-label">User Usuario :</label>
+                            <input id="user" placeholder="Digite el User" type="text" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite un User')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Password Usuario :</label>
+                            <input id="password" placeholder="Digite la Contraseña" type="text" class="form-control"
+                                   required autocomplete="off" oninvalid="setCustomValidity('Digite una Contraseña')"
+                                   oninput="setCustomValidity('')">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <script src="js/alertify.min.js"></script>
+    <script src="js/usuarios.js/"></script>
+    </body>
+</html>
